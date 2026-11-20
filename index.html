@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminación de Cuenta - Alcris</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            background-color: #f4f5f7;
+        }
+        .card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .badge {
+            display: inline-block;
+            background-color: #ffebee;
+            color: #d32f2f;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 24px;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+        }
+        h2 {
+            color: #222;
+            font-size: 17px;
+            margin-top: 24px;
+        }
+        p, li {
+            font-size: 15px;
+            color: #444;
+        }
+        .option-box {
+            background-color: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-left: 4px solid #d32f2f;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .option-title {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .form-group {
+            margin-top: 14px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 12px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <span class="badge">Alcris App • Privacidad y Datos</span>
+    <h1>Eliminación de Cuenta y Datos Personales</h1>
+
+    <p>En <strong>Alcris</strong> garantizamos tu derecho a eliminar tu cuenta y tus datos personales en cualquier momento, conforme a la <strong>Ley Estatutaria 1581 de 2012</strong> de Colombia y las políticas de Google Play. Tienes dos formas de hacerlo:</p>
+
+    <h2>Opciones para eliminar tu cuenta</h2>
+
+    <div class="option-box">
+        <span class="option-title">Opción 1: Directamente desde la aplicación (Inmediata)</span>
+        <p style="margin: 0;">Si aún tienes instalada la app <strong>Alcris</strong> en tu teléfono:</p>
+        <ol style="margin: 8px 0 0 0; padding-left: 20px;">
+            <li>Inicia sesión con tu cuenta.</li>
+            <li>Dirígete a la sección <strong>Perfil de usuario</strong>.</li>
+            <li>Selecciona la opción <strong>Eliminar cuenta</strong> y confirma tu decisión.</li>
+        </ol>
+    </div>
+
+    <div class="option-box">
+        <span class="option-title">Opción 2: Solicitud vía Web (Si ya desinstalaste la app)</span>
+        <p style="margin: 0 0 10px 0;">Si ya no tienes acceso a la aplicación, ingresa tu correo registrado para generar la solicitud de eliminación o escríbenos directamente a <strong>[tu-correo@ejemplo.com]</strong>:</p>
+        
+        <div class="form-group">
+            <label for="userEmail">Correo electrónico registrado en Alcris:</label>
+            <input type="email" id="userEmail" placeholder="ejemplo@correo.com" required>
+            <button class="btn" onclick="enviarSolicitud()">Solicitar Eliminación por Correo</button>
+        </div>
+    </div>
+
+    <h2>¿Qué sucede con tus datos al eliminar la cuenta?</h2>
+    <ul>
+        <li><strong>Datos eliminados permanentemente:</strong> Tu perfil de usuario, nombre completo, correo electrónico, número de teléfono, credenciales de acceso, fotografías capturadas o subidas desde la cámara y tokens de notificaciones se borran de forma definitiva (de manera inmediata desde la app o en un plazo máximo de 15 días hábiles si se solicita por vía web).</li>
+        <li><strong>Datos conservados por obligación legal:</strong> Únicamente los comprobantes contables y registros históricos de transacciones o pagos realizados (sin almacenar datos de tarjetas) se conservan bloqueados o anonimizados durante el tiempo mínimo exigido por la legislación tributaria y comercial vigente en Colombia.</li>
+    </ul>
+
+    <p class="note"><strong>Importante:</strong> La eliminación de la cuenta es permanente e irreversible. Una vez completada, no podrás recuperar tu historial de servicios agendados en <strong>Alcris</strong>.</p>
+</div>
+
+<script>
+    function enviarSolicitud() {
+        const email = document.getElementById('userEmail').value.trim();
+        if (!email) {
+            alert('Por favor ingresa el correo electrónico asociado a tu cuenta de Alcris.');
+            return;
+        }
+        const destino = '[tu-correo@ejemplo.com]';
+        const asunto = encodeURIComponent('Solicitud de Eliminación de Cuenta - Alcris');
+        const cuerpo = encodeURIComponent(
+            'Hola equipo de Alcris,\n\n' +
+            'Solicito la eliminación permanente de mi cuenta y de todos mis datos personales asociados al siguiente correo:\n\n' +
+            'Correo de la cuenta: ' + email + '\n\n' +
+            'Confirmo que entiendo que esta acción es irreversible.\n\nGracias.'
+        );
+        window.location.href = `mailto:${destino}?subject=${asunto}&body=${cuerpo}`;
+    }
+</script>
+
+</body>
+</html>
